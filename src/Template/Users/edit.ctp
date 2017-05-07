@@ -20,11 +20,10 @@
     <fieldset>
         <legend><?= __('Edit User') ?></legend>
         <?php
-            echo $this->Form->control('Title');
-            echo $this->Form->control('Body');
-            echo $this->Form->control('Create', ['empty' => true]);
-            echo $this->Form->control('Modified', ['empty' => true]);
-            echo $this->Form->control('Delete');
+            echo $this->Form->control('id');
+            echo $this->Form->control('username');
+            echo $this->Form->control('password');
+            echo $this->Form->control('role');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

@@ -16,6 +16,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\User patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\User[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\User findOrCreate($search, callable $callback = null, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class UsersTable extends Table
 {
@@ -33,6 +35,8 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('Id');
         $this->setPrimaryKey('Id');
+
+        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -43,31 +47,27 @@ class UsersTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->integer('Id')
-            ->allowEmpty('Id', 'create');
+      return $validator
+          ->notEmpty('username', 'A username is required')
+          ->notEmpty('password', 'A password is required')
+          ->notEmpty('role', 'A role is required')
+          ->add('role', 'inList', [
+              'rule' => ['inList', ['admin', 'author']],
+              'message' => 'Please enter a valid role'
+          ]);
+    }
 
-        $validator
-            ->requirePresence('Title', 'create')
-            ->notEmpty('Title');
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->isUnique(['username']));
 
-        $validator
-            ->requirePresence('Body', 'create')
-            ->notEmpty('Body');
-
-        $validator
-            ->dateTime('Create')
-            ->allowEmpty('Create');
-
-        $validator
-            ->dateTime('Modified')
-            ->allowEmpty('Modified');
-
-        $validator
-            ->boolean('Delete')
-            ->requirePresence('Delete', 'create')
-            ->notEmpty('Delete');
-
-        return $validator;
+        return $rules;
     }
 }

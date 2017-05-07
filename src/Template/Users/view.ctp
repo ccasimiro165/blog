@@ -16,28 +16,28 @@
     <h3><?= h($user->Id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Title') ?></th>
-            <td><?= h($user->Title) ?></td>
+            <th scope="row"><?= __('Username') ?></th>
+            <td><?= h($user->username) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Password') ?></th>
+            <td><?= h($user->password) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Role') ?></th>
+            <td><?= h($user->role) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($user->Id) ?></td>
+            <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Create') ?></th>
-            <td><?= h($user->Create) ?></td>
+            <th scope="row"><?= __('Created') ?></th>
+            <td><?= h($user->created) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($user->Modified) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Delete') ?></th>
-            <td><?= $user->Delete ? __('Yes') : __('No'); ?></td>
+            <td><?= h($user->modified) ?></td>
         </tr>
     </table>
-    <div class="row">
-        <h4><?= __('Body') ?></h4>
-        <?= $this->Text->autoParagraph(h($user->Body)); ?>
-    </div>
 </div>
