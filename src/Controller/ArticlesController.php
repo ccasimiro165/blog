@@ -128,4 +128,13 @@ class ArticlesController extends AppController
 
         return parent::isAuthorized($user);
     }
+
+    public function login(){
+
+      return $this->redirect(['controllers'=> 'Users', 'action'=>'login']);
+    }
+    public function logout()
+    {
+        return $this->redirect($this->Auth->logout());
+    }
 }

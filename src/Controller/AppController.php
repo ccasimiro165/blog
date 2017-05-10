@@ -41,7 +41,7 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
-        $this->loadComponent('Auth', [
+/*        $this->loadComponent('Auth', [
             'loginRedirect' => [
                 'controller' => 'Articles',
                 'action' => 'index'
@@ -50,8 +50,19 @@ class AppController extends Controller
                 'controller' => 'Pages',
                 'action' => 'display',
                 'home'
-            ]
-        ]);
+            ],
+            'authenticate'=>['Form'=>['fields'=>['usarname'=>'username','password'=>'password'],],],
+            'unauthorizedRedirect'=>true, 'storage'=>'Memory',
+        ]);*/
+        $this->loadComponent('Auth', ['authenticate'=>[
+          'Form'=>[
+            'fields'=>[
+              'usarname'=>'username','password'=>'password'],
+            ],
+          ],
+        'unauthorizedRedirect'=>true, 'storage'=>'Memory',
+    ]);
+        
     }
 
     public function isAuthorized($user)
