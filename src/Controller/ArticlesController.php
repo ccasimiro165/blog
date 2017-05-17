@@ -24,6 +24,13 @@ class ArticlesController extends AppController
         $this->set('_serialize', ['articles']);
     }
 
+    public function myart()
+    {
+        $articles = $this->paginate($this->Articles);
+
+        $this->set(compact('articles'));
+        $this->set('_serialize', ['articles']);
+    }
     /**
      * View method
      *

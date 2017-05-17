@@ -62,7 +62,7 @@ class AppController extends Controller
           ],
         'unauthorizedRedirect'=>true, 'storage'=>'Memory',
     ]);
-        
+
     }
 
     public function isAuthorized($user)
@@ -78,7 +78,7 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display']);
+        $this->Auth->allow(['index', 'view', 'display', 'myart']);
     }
 
   /*      $this->loadComponent('RequestHandler');

@@ -1,4 +1,4 @@
-<?php
+ar<?php
 /**
   * @var \App\View\AppView $this
   */
@@ -6,13 +6,17 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Article'), ['action' => 'add']) ?></li>
         <li><?=$this->Html->link(__('Login'), ['action' => 'login']) ?></li>
 
     </ul>
 </nav>
 <div class="articles index large-9 medium-8 columns content">
-    <h3><?= __('Articles') ?></h3>
+  <table style="width:100%">
+    <tr>
+      <th><h3><?= $this->Html->link(__('My Articles'), ['action' => 'myart']) ?></h3></th>
+      <th><h3><?= __('Articles') ?></h3></th>
+    </tr>
+  </table>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
