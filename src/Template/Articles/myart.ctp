@@ -14,10 +14,30 @@
 <div class="contain-fluid">
   <div col-sm-12>
     <div>
-        <pre>
-            <h1>Este es un articulo</h1>
-        </pre>
-    </div>
+      <head>
+        <h1>Articles </h1>
+      </head>
+      <nav class="navbar navbar-default" mavbar-fixed-top>
+        <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a> Articles</a> </li>
+          <li> <a href="#">My Articles</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+      </nav>
+      <pre>
+        <div  class="col-md-4" >
+        <?php foreach ($articles as $article): ?>
+            <h1><?= $article->title  ?></h1>
+
+                <img src="/img/Desert.jpg" class="img-thumbnail" alt="Picture of Deser" style="width:100%">
+            <p>
+
+      <?php endforeach; ?>
+      </div>
+    </pre>
+  </div>
   </div>
 
 
