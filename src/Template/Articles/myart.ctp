@@ -13,31 +13,53 @@
 
 <div class="contain-fluid">
   <div col-sm-12>
-    <div>
-      <head>
-        <h1>Articles </h1>
-      </head>
-      <nav class="navbar navbar-default" mavbar-fixed-top>
+
+      <nav class="navbar navbar-default navbar-fixed-top header-nav navbar-scroll-collapsed">
         <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <li class="active"><a> Articles</a> </li>
-          <li> <a href="#">My Articles</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+               </button>
+              <a class="navbar-brand" href="#"><h4>Local.Blog</h4></a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav text-center">
+              <li class="active"><a><h4>Articles<h4></a> </li>
+              <li> <a href="index"><h4>My Articles</h4></a></li>
+              <li> <a href="index"><h4>Top 10</h4></a></li>
+              <li> <a href="index"><h4>Historys</h4></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="singup"><h4><span class="glyphicon glyphicon-user"></span>Sign Up</h4></a></li>
+            <li><a href="login"><h4><span class="glyphicon glyphicon-log-in"></span> Login</h4></a></li>
+          </ul>
+
+        </div>
       </nav>
+      <div>
+        <h1>  </h1>
+      </div>
+
       <pre>
         <div  class="col-md-4" >
         <?php foreach ($articles as $article): ?>
             <h1><?= $article->title  ?></h1>
+                <div>
+                    <img src="/img/Desert.jpg" class="img-responsive" alt="Picture of Deser" style="width:100%">
+                    <h3><?= $this->Html->link(__('Edit'), ['action' => 'edit', $article->id]) ?></h3>
+                </div>
+            
 
-                <img src="/img/Desert.jpg" class="img-thumbnail" alt="Picture of Deser" style="width:100%">
-            <p>
+            <?php endforeach; ?>
+        </div>
+      </pre>
+    </div>
 
-      <?php endforeach; ?>
-      </div>
-    </pre>
-  </div>
   </div>
 
 

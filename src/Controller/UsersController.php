@@ -123,13 +123,13 @@ class UsersController extends AppController
 
     public function login()
     {
-
+        $query = $this->Users->find();
         if ($this->request->is('post')) {
         //  if ($user->execute($this->request->getData())){
               $user = $this->Auth->identify();
               if ($user) {
                   $this->Auth->setUser($user);
-                  
+                  $this->Flash->success(__("Welcome"));
                   return $this->redirect($this->Auth->redirectUrl( 'http://www.local.blog.com/Articles/myart'));
                 //  return $this->redirect();
               }

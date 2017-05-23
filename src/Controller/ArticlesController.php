@@ -144,4 +144,8 @@ class ArticlesController extends AppController
     {
         return $this->redirect($this->Auth->logout());
     }
+    public function singup(){
+
+      return $this->redirect(['controllers'=>'Users','action'=>'add']);
+    }
 }

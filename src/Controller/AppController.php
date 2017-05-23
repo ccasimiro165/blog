@@ -78,7 +78,7 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-        $this->Auth->allow(['index', 'view', 'display', 'myart']);
+        $this->Auth->allow(['index', 'view', 'display', 'myart','add']);
     }
 
   /*      $this->loadComponent('RequestHandler');
